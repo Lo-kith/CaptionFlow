@@ -1,0 +1,592 @@
+module.exports = [
+"[externals]/child_process [external] (child_process, cjs)", ((__turbopack_context__, module, exports) => {
+
+var mod = __turbopack_context__.x("child_process", () => require("child_process"));
+
+module.exports = mod;
+}),
+"[externals]/fs [external] (fs, cjs)", ((__turbopack_context__, module, exports) => {
+
+var mod = __turbopack_context__.x("fs", () => require("fs"));
+
+module.exports = mod;
+}),
+"[externals]/next/dist/compiled/@opentelemetry/api [external] (next/dist/compiled/@opentelemetry/api, cjs)", ((__turbopack_context__, module, exports) => {
+
+var mod = __turbopack_context__.x("next/dist/compiled/@opentelemetry/api", () => require("next/dist/compiled/@opentelemetry/api"));
+
+module.exports = mod;
+}),
+"[externals]/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js [external] (next/dist/compiled/next-server/app-page-turbo.runtime.dev.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+var mod = __turbopack_context__.x("next/dist/compiled/next-server/app-page-turbo.runtime.dev.js", () => require("next/dist/compiled/next-server/app-page-turbo.runtime.dev.js"));
+
+module.exports = mod;
+}),
+"[externals]/next/dist/compiled/next-server/app-route-turbo.runtime.dev.js [external] (next/dist/compiled/next-server/app-route-turbo.runtime.dev.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+var mod = __turbopack_context__.x("next/dist/compiled/next-server/app-route-turbo.runtime.dev.js", () => require("next/dist/compiled/next-server/app-route-turbo.runtime.dev.js"));
+
+module.exports = mod;
+}),
+"[externals]/next/dist/server/app-render/action-async-storage.external.js [external] (next/dist/server/app-render/action-async-storage.external.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+var mod = __turbopack_context__.x("next/dist/server/app-render/action-async-storage.external.js", () => require("next/dist/server/app-render/action-async-storage.external.js"));
+
+module.exports = mod;
+}),
+"[externals]/next/dist/server/app-render/after-task-async-storage.external.js [external] (next/dist/server/app-render/after-task-async-storage.external.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+var mod = __turbopack_context__.x("next/dist/server/app-render/after-task-async-storage.external.js", () => require("next/dist/server/app-render/after-task-async-storage.external.js"));
+
+module.exports = mod;
+}),
+"[externals]/next/dist/server/app-render/work-async-storage.external.js [external] (next/dist/server/app-render/work-async-storage.external.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+var mod = __turbopack_context__.x("next/dist/server/app-render/work-async-storage.external.js", () => require("next/dist/server/app-render/work-async-storage.external.js"));
+
+module.exports = mod;
+}),
+"[externals]/next/dist/server/app-render/work-unit-async-storage.external.js [external] (next/dist/server/app-render/work-unit-async-storage.external.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+var mod = __turbopack_context__.x("next/dist/server/app-render/work-unit-async-storage.external.js", () => require("next/dist/server/app-render/work-unit-async-storage.external.js"));
+
+module.exports = mod;
+}),
+"[externals]/next/dist/server/runtime-reacts.external.js [external] (next/dist/server/runtime-reacts.external.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+var mod = __turbopack_context__.x("next/dist/server/runtime-reacts.external.js", () => require("next/dist/server/runtime-reacts.external.js"));
+
+module.exports = mod;
+}),
+"[externals]/next/dist/shared/lib/no-fallback-error.external.js [external] (next/dist/shared/lib/no-fallback-error.external.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+var mod = __turbopack_context__.x("next/dist/shared/lib/no-fallback-error.external.js", () => require("next/dist/shared/lib/no-fallback-error.external.js"));
+
+module.exports = mod;
+}),
+"[externals]/node:stream [external] (node:stream, cjs)", ((__turbopack_context__, module, exports) => {
+
+var mod = __turbopack_context__.x("node:stream", () => require("node:stream"));
+
+module.exports = mod;
+}),
+"[externals]/os [external] (os, cjs)", ((__turbopack_context__, module, exports) => {
+
+var mod = __turbopack_context__.x("os", () => require("os"));
+
+module.exports = mod;
+}),
+"[externals]/path [external] (path, cjs)", ((__turbopack_context__, module, exports) => {
+
+var mod = __turbopack_context__.x("path", () => require("path"));
+
+module.exports = mod;
+}),
+"[project]/app/api/transcribe/route.ts [app-route] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+return __turbopack_context__.a(async (__turbopack_handle_async_dependencies__, __turbopack_async_result__) => { try {
+__turbopack_context__.s([
+    "POST",
+    ()=>POST
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/server.js [app-route] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/path [external] (path, cjs)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$ffmpeg$2f$extractAudio$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/ffmpeg/extractAudio.ts [app-route] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$transcription$2f$whisper$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/transcription/whisper.ts [app-route] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2f$tempFiles$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/utils/tempFiles.ts [app-route] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/fs [external] (fs, cjs)");
+var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
+    __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$transcription$2f$whisper$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__
+]);
+[__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$transcription$2f$whisper$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__;
+;
+;
+;
+;
+;
+;
+async function POST(req) {
+    try {
+        (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2f$tempFiles$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["ensureTempDirs"])();
+        const body = await req.json();
+        const { jobId, filePath } = body;
+        if (!jobId || !filePath) {
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: 'Missing jobId or filePath'
+            }, {
+                status: 400
+            });
+        }
+        // ─── Security: ensure filePath is within uploads dir ──────────────────
+        const uploadsDir = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].resolve(__TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2f$tempFiles$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["TEMP_DIRS"].uploads);
+        const resolvedPath = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].resolve(filePath);
+        if (!resolvedPath.startsWith(uploadsDir)) {
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: 'Invalid file path'
+            }, {
+                status: 403
+            });
+        }
+        if (!__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(resolvedPath)) {
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: 'Video file not found'
+            }, {
+                status: 404
+            });
+        }
+        // ─── Extract audio ─────────────────────────────────────────────────────
+        let audioPath;
+        try {
+            audioPath = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$ffmpeg$2f$extractAudio$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["extractAudio"])(resolvedPath, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$utils$2f$tempFiles$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["TEMP_DIRS"].audio);
+        } catch (err) {
+            console.error('[transcribe] Audio extraction failed:', err);
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: `Audio extraction failed: ${err.message}`
+            }, {
+                status: 500
+            });
+        }
+        // ─── Transcribe ────────────────────────────────────────────────────────
+        let result;
+        try {
+            const service = (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$transcription$2f$whisper$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["createTranscriptionService"])();
+            result = await service.transcribe(audioPath);
+        } catch (err) {
+            console.error('[transcribe] Transcription failed:', err);
+            const message = err.message;
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: `Transcription failed: ${message}`
+            }, {
+                status: 500
+            });
+        } finally{
+            // Clean up audio file
+            try {
+                __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].unlinkSync(audioPath);
+            } catch  {}
+        }
+        if (result.segments.length === 0) {
+            return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+                error: 'No speech detected in the video. Please check that the video contains spoken audio.'
+            }, {
+                status: 422
+            });
+        }
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+            segments: result.segments,
+            language: result.language,
+            duration: result.duration
+        });
+    } catch (err) {
+        console.error('[transcribe] Unexpected error:', err);
+        return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+            error: 'Transcription failed unexpectedly. Please try again.'
+        }, {
+            status: 500
+        });
+    }
+}
+__turbopack_async_result__();
+} catch(e) { __turbopack_async_result__(e); } }, false);}),
+"[project]/lib/ffmpeg/extractAudio.ts [app-route] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "extractAudio",
+    ()=>extractAudio
+]);
+var __TURBOPACK__imported__module__$5b$externals$5d2f$child_process__$5b$external$5d$__$28$child_process$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/child_process [external] (child_process, cjs)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/path [external] (path, cjs)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/fs [external] (fs, cjs)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$ffmpeg$2f$paths$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/ffmpeg/paths.ts [app-route] (ecmascript)");
+;
+;
+;
+;
+async function extractAudio(videoPath, outputDir) {
+    const audioFileName = `audio-${Date.now()}.wav`;
+    const audioPath = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(outputDir, audioFileName);
+    // Ensure output directory exists
+    __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].mkdirSync(outputDir, {
+        recursive: true
+    });
+    return new Promise((resolve, reject)=>{
+        const args = [
+            '-i',
+            videoPath,
+            '-vn',
+            '-acodec',
+            'pcm_s16le',
+            '-ar',
+            '16000',
+            '-ac',
+            '1',
+            '-y',
+            audioPath
+        ];
+        const proc = (0, __TURBOPACK__imported__module__$5b$externals$5d2f$child_process__$5b$external$5d$__$28$child_process$2c$__cjs$29$__["spawn"])((0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$ffmpeg$2f$paths$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getFFmpegPath"])(), args);
+        let stderr = '';
+        proc.stderr.on('data', (chunk)=>{
+            stderr += chunk.toString();
+        });
+        proc.on('close', (code)=>{
+            if (code !== 0) {
+                reject(new Error(`FFmpeg audio extraction failed (code ${code}): ${stderr}`));
+                return;
+            }
+            if (!__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(audioPath)) {
+                reject(new Error('Audio file was not created by FFmpeg'));
+                return;
+            }
+            resolve(audioPath);
+        });
+        proc.on('error', (err)=>{
+            reject(new Error(`FFmpeg failed to start: ${err.message}. Make sure FFmpeg is installed and in PATH.`));
+        });
+    });
+}
+}),
+"[project]/lib/ffmpeg/paths.ts [app-route] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "getFFmpegPath",
+    ()=>getFFmpegPath,
+    "getFFprobePath",
+    ()=>getFFprobePath
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ffmpeg$2d$static$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/ffmpeg-static/index.js [app-route] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ffprobe$2d$static$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/ffprobe-static/index.js [app-route] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/path [external] (path, cjs)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/fs [external] (fs, cjs)");
+;
+;
+;
+;
+/**
+ * Sanitize path generated by bundlers (like Next.js Turbopack) which replace __dirname with \ROOT.
+ */ function resolveBundlerPath(p) {
+    if (!p) return null;
+    // Fix Next.js Turbopack \ROOT virtual path
+    let normalized = p;
+    if (/^[\/\\]+ROOT[\/\\]?/.test(normalized)) {
+        const cleaned = normalized.replace(/^[\/\\]+ROOT[\/\\]?/, '');
+        normalized = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), cleaned);
+    }
+    if (__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(normalized)) {
+        return normalized;
+    }
+    return null;
+}
+/**
+ * Scan WinGet packages directory for installed FFmpeg/FFprobe binaries on Windows.
+ */ function findWinGetBinary(binaryName) {
+    if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+    ;
+    const localAppData = process.env.LOCALAPPDATA;
+    if (!localAppData) return null;
+    const wingetDir = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(localAppData, 'Microsoft', 'WinGet', 'Packages');
+    if (!__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(wingetDir)) return null;
+    try {
+        const entries = __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].readdirSync(wingetDir);
+        for (const entry of entries){
+            if (entry.toLowerCase().includes('ffmpeg')) {
+                const pkgDir = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(wingetDir, entry);
+                // Check pkgDir/bin or subfolder/bin
+                const binDirect = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(pkgDir, 'bin', binaryName);
+                if (__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(binDirect)) return binDirect;
+                const subEntries = __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].readdirSync(pkgDir);
+                for (const sub of subEntries){
+                    const subBin = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(pkgDir, sub, 'bin', binaryName);
+                    if (__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(subBin)) return subBin;
+                }
+            }
+        }
+    } catch  {}
+    return null;
+}
+function getFFmpegPath() {
+    if (process.env.FFMPEG_PATH && __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(process.env.FFMPEG_PATH)) {
+        return process.env.FFMPEG_PATH;
+    }
+    const resolved = resolveBundlerPath(typeof __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ffmpeg$2d$static$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"] === 'string' ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ffmpeg$2d$static$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"] : null);
+    if (resolved) {
+        return resolved;
+    }
+    // Direct fallback inside node_modules
+    const directPath = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), 'node_modules', 'ffmpeg-static', 'ffmpeg.exe');
+    if (__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(directPath)) {
+        return directPath;
+    }
+    // Check WinGet installation
+    const wingetPath = findWinGetBinary('ffmpeg.exe');
+    if (wingetPath) {
+        return wingetPath;
+    }
+    return 'ffmpeg';
+}
+function getFFprobePath() {
+    if (process.env.FFPROBE_PATH && __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(process.env.FFPROBE_PATH)) {
+        return process.env.FFPROBE_PATH;
+    }
+    const resolved = resolveBundlerPath(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ffprobe$2d$static$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"]?.path);
+    if (resolved) {
+        return resolved;
+    }
+    // Direct fallback inside node_modules
+    const directPath = __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(process.cwd(), 'node_modules', 'ffprobe-static', 'bin', ("TURBOPACK compile-time truthy", 1) ? 'win32' : "TURBOPACK unreachable", ("TURBOPACK compile-time truthy", 1) ? 'x64' : "TURBOPACK unreachable", ("TURBOPACK compile-time truthy", 1) ? 'ffprobe.exe' : "TURBOPACK unreachable");
+    if (__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(directPath)) {
+        return directPath;
+    }
+    // Check WinGet installation
+    const wingetPath = findWinGetBinary('ffprobe.exe');
+    if (wingetPath) {
+        return wingetPath;
+    }
+    return 'ffprobe';
+}
+}),
+"[project]/lib/transcription/types.ts [app-route] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "DEFAULT_WHISPER_MODEL",
+    ()=>DEFAULT_WHISPER_MODEL,
+    "WHISPER_MODELS",
+    ()=>WHISPER_MODELS
+]);
+const WHISPER_MODELS = {
+    tiny: 'Xenova/whisper-tiny',
+    base: 'Xenova/whisper-base',
+    small: 'Xenova/whisper-small',
+    medium: 'Xenova/whisper-medium',
+    large: 'Xenova/whisper-large'
+};
+const DEFAULT_WHISPER_MODEL = 'Xenova/whisper-base';
+}),
+"[project]/lib/transcription/whisper.ts [app-route] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+return __turbopack_context__.a(async (__turbopack_handle_async_dependencies__, __turbopack_async_result__) => { try {
+__turbopack_context__.s([
+    "LocalWhisperService",
+    ()=>LocalWhisperService,
+    "createTranscriptionService",
+    ()=>createTranscriptionService
+]);
+/**
+ * Local Whisper transcription using @xenova/transformers (Transformers.js).
+ *
+ * Runs entirely on-device — no API key, no internet required after
+ * the first model download. Models are cached in the HuggingFace
+ * cache directory (~/.cache/huggingface/hub).
+ *
+ * Audio pipeline:
+ *   Video → FFmpeg (16 kHz mono WAV) → wavefile decoder → Float32Array
+ *     → Xenova/whisper-* → chunk timestamps → SubtitleSegment[]
+ */ var __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/fs [external] (fs, cjs)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f40$xenova$2f$transformers__$5b$external$5d$__$2840$xenova$2f$transformers$2c$__esm_import$2c$__$5b$project$5d2f$node_modules$2f40$xenova$2f$transformers$29$__ = __turbopack_context__.i("[externals]/@xenova/transformers [external] (@xenova/transformers, esm_import, [project]/node_modules/@xenova/transformers)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wavefile$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/wavefile/index.js [app-route] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$transcription$2f$types$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/transcription/types.ts [app-route] (ecmascript)");
+var __turbopack_async_dependencies__ = __turbopack_handle_async_dependencies__([
+    __TURBOPACK__imported__module__$5b$externals$5d2f40$xenova$2f$transformers__$5b$external$5d$__$2840$xenova$2f$transformers$2c$__esm_import$2c$__$5b$project$5d2f$node_modules$2f40$xenova$2f$transformers$29$__
+]);
+[__TURBOPACK__imported__module__$5b$externals$5d2f40$xenova$2f$transformers__$5b$external$5d$__$2840$xenova$2f$transformers$2c$__esm_import$2c$__$5b$project$5d2f$node_modules$2f40$xenova$2f$transformers$29$__] = __turbopack_async_dependencies__.then ? (await __turbopack_async_dependencies__)() : __turbopack_async_dependencies__;
+;
+;
+;
+;
+// ─── Configure transformers.js for server-side Node.js ────────────────────
+// Prevent the library from trying to use browser-only APIs
+__TURBOPACK__imported__module__$5b$externals$5d2f40$xenova$2f$transformers__$5b$external$5d$__$2840$xenova$2f$transformers$2c$__esm_import$2c$__$5b$project$5d2f$node_modules$2f40$xenova$2f$transformers$29$__["env"].useBrowserCache = false;
+__TURBOPACK__imported__module__$5b$externals$5d2f40$xenova$2f$transformers__$5b$external$5d$__$2840$xenova$2f$transformers$2c$__esm_import$2c$__$5b$project$5d2f$node_modules$2f40$xenova$2f$transformers$29$__["env"].allowLocalModels = false; // always fetch from HuggingFace hub
+let _pipelinePromise = null;
+let _loadedModelId = null;
+/**
+ * Lazily load (and cache) the ASR pipeline.
+ * The first call downloads the model; subsequent calls reuse it.
+ */ async function getOrCreatePipeline(modelId) {
+    // If model changed, reset
+    if (_loadedModelId && _loadedModelId !== modelId) {
+        _pipelinePromise = null;
+        _loadedModelId = null;
+    }
+    if (!_pipelinePromise) {
+        console.log(`[whisper] Loading model "${modelId}" (first-time download may take a few minutes)...`);
+        _loadedModelId = modelId;
+        _pipelinePromise = (0, __TURBOPACK__imported__module__$5b$externals$5d2f40$xenova$2f$transformers__$5b$external$5d$__$2840$xenova$2f$transformers$2c$__esm_import$2c$__$5b$project$5d2f$node_modules$2f40$xenova$2f$transformers$29$__["pipeline"])('automatic-speech-recognition', modelId, {
+            // Use quantized (int8) ONNX model for faster inference + smaller download
+            quantized: true
+        });
+    }
+    return _pipelinePromise;
+}
+// ─── WAV audio decoder ────────────────────────────────────────────────────
+/**
+ * Read a WAV file and return its samples as a Float32Array at 16 kHz.
+ *
+ * FFmpeg has already output 16 kHz mono PCM, but we use wavefile to
+ * robustly decode the RIFF header and handle edge cases.
+ */ function decodeWavFile(filePath) {
+    const buffer = __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].readFileSync(filePath);
+    const wav = new __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$wavefile$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["WaveFile"](buffer);
+    // Normalize to 32-bit float and 16 kHz (Whisper requirement)
+    wav.toBitDepth('32f');
+    wav.toSampleRate(16000);
+    // getSamples() returns an array of channel arrays; take the first channel
+    const raw = wav.getSamples();
+    const samples = Array.isArray(raw) ? raw[0] : raw;
+    return samples;
+}
+class LocalWhisperService {
+    modelId;
+    constructor(modelId = __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$transcription$2f$types$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["DEFAULT_WHISPER_MODEL"]){
+        this.modelId = modelId;
+    }
+    async transcribe(audioPath) {
+        if (!__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(audioPath)) {
+            throw new Error(`Audio file not found: ${audioPath}`);
+        }
+        // 1. Load model (cached after first run)
+        const transcriber = await getOrCreatePipeline(this.modelId);
+        // 2. Decode WAV → Float32Array
+        let audioSamples;
+        try {
+            audioSamples = decodeWavFile(audioPath);
+        } catch (err) {
+            throw new Error(`Failed to decode audio file: ${err.message}`);
+        }
+        if (audioSamples.length === 0) {
+            throw new Error('Audio file is empty or contains no samples');
+        }
+        console.log(`[whisper] Transcribing ${(audioSamples.length / 16000).toFixed(1)}s of audio with model "${this.modelId}"...`);
+        // 3. Run transcription with timestamp chunks
+        const output = await transcriber(audioSamples, {
+            return_timestamps: true,
+            chunk_length_s: 30,
+            stride_length_s: 5,
+            language: undefined,
+            task: 'transcribe'
+        });
+        console.log(`[whisper] Transcription complete. Segments: ${output.chunks?.length ?? 0}`);
+        // 4. Normalize output into SubtitleSegment[]
+        const segments = this.normalizeSegments(output);
+        return {
+            segments,
+            language: undefined,
+            duration: audioSamples.length / 16000
+        };
+    }
+    normalizeSegments(output) {
+        // If we have chunk-level timestamps, use them
+        if (output.chunks && output.chunks.length > 0) {
+            return output.chunks.filter((chunk)=>chunk.text?.trim().length > 0).map((chunk, i)=>{
+                const start = chunk.timestamp[0] ?? 0;
+                // If end is null (last chunk), estimate from start
+                const end = chunk.timestamp[1] ?? start + 3;
+                return {
+                    id: `sub-${i + 1}`,
+                    start: Math.max(0, start),
+                    end: Math.max(start + 0.1, end),
+                    text: chunk.text.trim()
+                };
+            });
+        }
+        // Fallback: no chunks → single segment with full text
+        if (output.text?.trim()) {
+            return [
+                {
+                    id: 'sub-1',
+                    start: 0,
+                    end: 30,
+                    text: output.text.trim()
+                }
+            ];
+        }
+        return [];
+    }
+}
+// ─── Factory ──────────────────────────────────────────────────────────────
+/**
+ * Resolve model ID from environment.
+ *
+ * WHISPER_MODEL env var accepts:
+ *   - A full HuggingFace model ID:  "Xenova/whisper-small"
+ *   - A short alias:                "tiny" | "base" | "small" | "medium" | "large"
+ *
+ * Defaults to "Xenova/whisper-base" — good balance of speed and accuracy.
+ */ function resolveModelId() {
+    const raw = process.env.WHISPER_MODEL?.trim();
+    if (!raw) return __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$transcription$2f$types$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["DEFAULT_WHISPER_MODEL"];
+    // Short alias → full model ID
+    const aliases = {
+        tiny: 'Xenova/whisper-tiny',
+        base: 'Xenova/whisper-base',
+        small: 'Xenova/whisper-small',
+        medium: 'Xenova/whisper-medium',
+        large: 'Xenova/whisper-large',
+        // English-only variants (faster)
+        'tiny.en': 'Xenova/whisper-tiny.en',
+        'base.en': 'Xenova/whisper-base.en',
+        'small.en': 'Xenova/whisper-small.en',
+        'medium.en': 'Xenova/whisper-medium.en'
+    };
+    return aliases[raw] ?? raw;
+}
+function createTranscriptionService() {
+    const modelId = resolveModelId();
+    return new LocalWhisperService(modelId);
+}
+__turbopack_async_result__();
+} catch(e) { __turbopack_async_result__(e); } }, false);}),
+"[project]/lib/utils/tempFiles.ts [app-route] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "TEMP_DIRS",
+    ()=>TEMP_DIRS,
+    "ensureTempDirs",
+    ()=>ensureTempDirs,
+    "safeUnlink",
+    ()=>safeUnlink,
+    "sanitizeFilename",
+    ()=>sanitizeFilename
+]);
+var __TURBOPACK__imported__module__$5b$externals$5d2f$os__$5b$external$5d$__$28$os$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/os [external] (os, cjs)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/path [external] (path, cjs)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/fs [external] (fs, cjs)");
+;
+;
+;
+const BASE_DIR = process.env.TEMP_DIR ?? __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(__TURBOPACK__imported__module__$5b$externals$5d2f$os__$5b$external$5d$__$28$os$2c$__cjs$29$__["default"].tmpdir(), 'captionflow');
+const TEMP_DIRS = {
+    uploads: __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(BASE_DIR, 'uploads'),
+    audio: __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(BASE_DIR, 'audio'),
+    subtitles: __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(BASE_DIR, 'subtitles'),
+    output: __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].join(BASE_DIR, 'output')
+};
+function ensureTempDirs() {
+    Object.values(TEMP_DIRS).forEach((dir)=>{
+        __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].mkdirSync(dir, {
+            recursive: true
+        });
+    });
+}
+function safeUnlink(filePath) {
+    try {
+        if (__TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(filePath)) {
+            __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].unlinkSync(filePath);
+        }
+    } catch  {
+    // Ignore cleanup errors
+    }
+}
+function sanitizeFilename(name) {
+    return __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__["default"].basename(name).replace(/[^a-zA-Z0-9._-]/g, '_').slice(0, 100);
+}
+}),
+];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__1qz8p75._.js.map
