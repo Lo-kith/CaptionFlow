@@ -108,13 +108,19 @@ export class LocalWhisperService implements TranscriptionService {
     console.log(`[whisper] Transcribing ${(audioSamples.length / 16000).toFixed(1)}s of audio with model "${this.modelId}"...`)
 
     // 3. Run transcription with timestamp chunks
-    const output = (await (transcriber as any)(audioSamples, {
-      return_timestamps: true,   // Return segment-level timestamps
-      chunk_length_s: 30,        // Process 30-second windows
-      stride_length_s: 5,        // 5-second overlap between windows
-      language: undefined,       // Auto-detect language
-      task: 'transcribe',
-    })) as WhisperOutput
+    let output: WhisperOutput
+    try {
+      output = (await (transcriber as any)(audioSamples, {
+        return_timestamps: true,   // Return segment-level timestamps
+        chunk_length_s: 30,        // Process 30-second windows
+        task: 'transcribe',
+      })) as WhisperOutput
+    } catch (err) {
+      console.warn(`[whisper] Timestamp extraction failed (${(err as Error).message}), retrying without chunking...`)
+      output = (await (transcriber as any)(audioSamples, {
+        task: 'transcribe',
+      })) as WhisperOutput
+    }
 
     console.log(`[whisper] Transcription complete. Segments: ${output.chunks?.length ?? 0}`)
 

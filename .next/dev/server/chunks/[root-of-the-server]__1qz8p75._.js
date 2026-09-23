@@ -463,13 +463,19 @@ class LocalWhisperService {
         }
         console.log(`[whisper] Transcribing ${(audioSamples.length / 16000).toFixed(1)}s of audio with model "${this.modelId}"...`);
         // 3. Run transcription with timestamp chunks
-        const output = await transcriber(audioSamples, {
-            return_timestamps: true,
-            chunk_length_s: 30,
-            stride_length_s: 5,
-            language: undefined,
-            task: 'transcribe'
-        });
+        let output;
+        try {
+            output = await transcriber(audioSamples, {
+                return_timestamps: true,
+                chunk_length_s: 30,
+                task: 'transcribe'
+            });
+        } catch (err) {
+            console.warn(`[whisper] Timestamp extraction failed (${err.message}), retrying without chunking...`);
+            output = await transcriber(audioSamples, {
+                task: 'transcribe'
+            });
+        }
         console.log(`[whisper] Transcription complete. Segments: ${output.chunks?.length ?? 0}`);
         // 4. Normalize output into SubtitleSegment[]
         const segments = this.normalizeSegments(output);
