@@ -173,8 +173,21 @@ export default function Timeline() {
     }
   }, [pps, subtitles, duration, updateSubtitle])
 
+  // ─── Horizontal wheel scroll ──────────────────────────────────────────────
+  const handleWheel = useCallback((e: React.WheelEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return
+    const scrollAmount = e.deltaX !== 0 ? e.deltaX : e.deltaY
+    if (scrollAmount !== 0) {
+      containerRef.current.scrollLeft += scrollAmount
+    }
+  }, [])
+
   return (
-    <div className="timeline-container select-none" ref={containerRef}>
+    <div
+      className="timeline-container select-none"
+      ref={containerRef}
+      onWheel={handleWheel}
+    >
       {/* Inner scrollable area */}
       <div
         style={{ width: totalWidth, position: 'relative' }}

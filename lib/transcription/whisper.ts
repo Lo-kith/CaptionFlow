@@ -135,38 +135,201 @@ export class LocalWhisperService implements TranscriptionService {
   }
 
   private normalizeSegments(output: WhisperOutput): SubtitleSegment[] {
-    // If we have chunk-level timestamps, use them
-    if (output.chunks && output.chunks.length > 0) {
-      return output.chunks
-        .filter((chunk) => chunk.text?.trim().length > 0)
-        .map((chunk, i) => {
-          const start = chunk.timestamp[0] ?? 0
-          // If end is null (last chunk), estimate from start
-          const end = chunk.timestamp[1] ?? start + 3
-
-          return {
-            id: `sub-${i + 1}`,
-            start: Math.max(0, start),
-            end: Math.max(start + 0.1, end),
-            text: chunk.text.trim(),
-          }
-        })
+    if (!output.chunks || output.chunks.length === 0) {
+      if (output.text?.trim()) {
+        const cleaned = sanitizeText(output.text.trim())
+        if (cleaned) {
+          return this.splitTextIntoPhraseSegments(cleaned, 0, 30)
+        }
+      }
+      return []
     }
 
-    // Fallback: no chunks → single segment with full text
-    if (output.text?.trim()) {
+    const validChunks = output.chunks
+      .map((c) => ({
+        ...c,
+        cleanText: sanitizeText(c.text || ''),
+      }))
+      .filter((c) => c.cleanText.length > 0 && !isHallucinated(c.cleanText))
+
+    const result: SubtitleSegment[] = []
+
+    validChunks.forEach((chunk, i) => {
+      const start = Math.max(0, chunk.timestamp[0] ?? 0)
+      let end = chunk.timestamp[1]
+
+      if (end === null || end === undefined || end <= start) {
+        if (
+          i < validChunks.length - 1 &&
+          validChunks[i + 1].timestamp[0] !== null &&
+          (validChunks[i + 1].timestamp[0] as number) > start
+        ) {
+          end = validChunks[i + 1].timestamp[0] as number
+        } else {
+          const wordCount = chunk.cleanText.split(/\s+/).length
+          end = start + Math.max(1.5, wordCount * 0.35)
+        }
+      }
+
+      const phraseSegments = this.splitTextIntoPhraseSegments(chunk.cleanText, start, end)
+      result.push(...phraseSegments)
+    })
+
+    // Deduplicate consecutive identical segments
+    const finalSegments: SubtitleSegment[] = []
+    result.forEach((seg) => {
+      if (
+        finalSegments.length > 0 &&
+        finalSegments[finalSegments.length - 1].text.toLowerCase() === seg.text.toLowerCase()
+      ) {
+        // Extend the previous segment's end time instead of adding duplicate text
+        finalSegments[finalSegments.length - 1].end = seg.end
+      } else {
+        finalSegments.push(seg)
+      }
+    })
+
+    return finalSegments.map((seg, idx) => ({
+      ...seg,
+      id: `sub-${idx + 1}`,
+    }))
+  }
+
+  private splitTextIntoPhraseSegments(
+    fullText: string,
+    startTime: number,
+    endTime: number
+  ): SubtitleSegment[] {
+    const cleaned = sanitizeText(fullText)
+    if (!cleaned || isHallucinated(cleaned)) return []
+
+    const totalDuration = Math.max(0.2, endTime - startTime)
+    const words = cleaned.split(/\s+/).filter(Boolean)
+
+    if (words.length === 0) return []
+
+    // If chunk is short (<= 7 words and <= 3.5s), keep as single segment
+    if (words.length <= 7 && totalDuration <= 3.5) {
       return [
         {
-          id: 'sub-1',
-          start: 0,
-          end: 30,
-          text: output.text.trim(),
+          id: '',
+          start: Number(startTime.toFixed(3)),
+          end: Number(endTime.toFixed(3)),
+          text: words.join(' '),
         },
       ]
     }
 
-    return []
+    // Split text into phrase groups by punctuation or max word count (5-7 words)
+    const phrases: string[] = []
+    let currentWords: string[] = []
+
+    for (let i = 0; i < words.length; i++) {
+      const word = words[i]
+      currentWords.push(word)
+
+      const hasPunctuation = /[,.?!;:]$/.test(word)
+      if (currentWords.length >= 7 || (hasPunctuation && currentWords.length >= 3) || i === words.length - 1) {
+        phrases.push(currentWords.join(' '))
+        currentWords = []
+      }
+    }
+
+    if (currentWords.length > 0) {
+      if (phrases.length > 0) {
+        phrases[phrases.length - 1] += ' ' + currentWords.join(' ')
+      } else {
+        phrases.push(currentWords.join(' '))
+      }
+    }
+
+    const totalCharCount = words.join('').length || 1
+    let currentStart = startTime
+
+    return phrases.map((phrase, idx) => {
+      const phraseCharCount = phrase.replace(/\s+/g, '').length
+      const phraseDuration = (phraseCharCount / totalCharCount) * totalDuration
+      const isLast = idx === phrases.length - 1
+      const subEnd = isLast ? endTime : Math.min(endTime - 0.05, currentStart + phraseDuration)
+
+      const segment: SubtitleSegment = {
+        id: '',
+        start: Number(currentStart.toFixed(3)),
+        end: Number(Math.max(currentStart + 0.1, subEnd).toFixed(3)),
+        text: phrase,
+      }
+      currentStart = subEnd
+      return segment
+    })
   }
+}
+
+/**
+ * Remove repeated hallucinated tokens (e.g., "R R R R R", "RRRRRRR.", ". . . .")
+ */
+function sanitizeText(text: string): string {
+  let cleaned = text.trim()
+
+  // Remove trailing or leading repeated single/double letter words e.g. "Sunday evening, R R R R R." -> "Sunday evening,"
+  cleaned = cleaned.replace(/(\b[A-Za-z]{1,2}\b[.,!?]?\s+){2,}\b[A-Za-z]{1,2}\b[.,!?]?/gi, '').trim()
+
+  // Remove repeating single character runs like "RRRRRRR" or "RRRRRRR."
+  cleaned = cleaned.replace(/\b([a-zA-Z0-9])\1{2,}\b[.,!?]?/gi, '').trim()
+
+  // Remove standalone non-alphanumeric symbols
+  cleaned = cleaned.replace(/^[^a-zA-Z0-9\s]+$/g, '').trim()
+
+  return cleaned
+}
+
+/**
+ * Check if text is a Whisper hallucination (e.g. repeated token loop, non-speech noise)
+ */
+function isHallucinated(text: string): boolean {
+  const trimmed = text.trim()
+  if (!trimmed) return true
+
+  // Strip punctuation to evaluate core alphanumeric content
+  const alphaOnly = trimmed.replace(/[^a-zA-Z0-9]/g, '')
+  if (!alphaOnly || alphaOnly.length < 2) return true
+
+  // 1. Repeating single character pattern e.g. "RRRRRRR", "R R R R R"
+  if (/^([a-zA-Z0-9])\1+$/i.test(alphaOnly)) {
+    return true
+  }
+
+  // 2. Repeating short n-gram pattern e.g. "ababab", "xyzxyzxyz"
+  if (/^(.{1,4})\1{2,}$/i.test(alphaOnly)) {
+    return true
+  }
+
+  // 3. High ratio of identical words / letters
+  const words = trimmed.split(/\s+/).map((w) => w.replace(/[^a-zA-Z0-9]/g, '')).filter(Boolean)
+  if (words.length > 0) {
+    const firstWord = words[0].toUpperCase()
+    const identicalCount = words.filter((w) => w.toUpperCase() === firstWord).length
+    if (identicalCount / words.length >= 0.5 && firstWord.length <= 3) {
+      return true
+    }
+  }
+
+  // 4. Common Whisper silence/noise/outro hallucinations
+  const lower = trimmed.toLowerCase()
+  if (
+    lower.includes('subtitles by') ||
+    lower.includes('amara.org') ||
+    lower.includes('thank you for watching') ||
+    lower.includes('subscribe') ||
+    /^\[.*\]$/.test(lower) ||
+    /^\(.*\)$/.test(lower) ||
+    lower === 'you' ||
+    lower === 'bye' ||
+    lower === 'thanks'
+  ) {
+    return true
+  }
+
+  return false
 }
 
 // ─── Factory ──────────────────────────────────────────────────────────────
