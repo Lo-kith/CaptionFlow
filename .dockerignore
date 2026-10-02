@@ -39,3 +39,4 @@ docker-compose.yml
 DEPLOY.md
 .git
 .gitignore
+.github
