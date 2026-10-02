@@ -289,8 +289,8 @@ __turbopack_context__.s([
     "getFFprobePath",
     ()=>getFFprobePath
 ]);
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ffmpeg$2d$static$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/ffmpeg-static/index.js [app-route] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ffprobe$2d$static$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/ffprobe-static/index.js [app-route] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$ffmpeg$2d$static__$5b$external$5d$__$28$ffmpeg$2d$static$2c$__cjs$2c$__$5b$project$5d2f$node_modules$2f$ffmpeg$2d$static$29$__ = __turbopack_context__.i("[externals]/ffmpeg-static [external] (ffmpeg-static, cjs, [project]/node_modules/ffmpeg-static)");
+var __TURBOPACK__imported__module__$5b$externals$5d2f$ffprobe$2d$static__$5b$external$5d$__$28$ffprobe$2d$static$2c$__cjs$2c$__$5b$project$5d2f$node_modules$2f$ffprobe$2d$static$29$__ = __turbopack_context__.i("[externals]/ffprobe-static [external] (ffprobe-static, cjs, [project]/node_modules/ffprobe-static)");
 var __TURBOPACK__imported__module__$5b$externals$5d2f$path__$5b$external$5d$__$28$path$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/path [external] (path, cjs)");
 var __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__ = __turbopack_context__.i("[externals]/fs [external] (fs, cjs)");
 ;
@@ -343,7 +343,7 @@ function getFFmpegPath() {
     if (process.env.FFMPEG_PATH && __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(process.env.FFMPEG_PATH)) {
         return process.env.FFMPEG_PATH;
     }
-    const resolved = resolveBundlerPath(typeof __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ffmpeg$2d$static$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"] === 'string' ? __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ffmpeg$2d$static$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"] : null);
+    const resolved = resolveBundlerPath(typeof __TURBOPACK__imported__module__$5b$externals$5d2f$ffmpeg$2d$static__$5b$external$5d$__$28$ffmpeg$2d$static$2c$__cjs$2c$__$5b$project$5d2f$node_modules$2f$ffmpeg$2d$static$29$__["default"] === 'string' ? __TURBOPACK__imported__module__$5b$externals$5d2f$ffmpeg$2d$static__$5b$external$5d$__$28$ffmpeg$2d$static$2c$__cjs$2c$__$5b$project$5d2f$node_modules$2f$ffmpeg$2d$static$29$__["default"] : null);
     if (resolved) {
         return resolved;
     }
@@ -363,7 +363,7 @@ function getFFprobePath() {
     if (process.env.FFPROBE_PATH && __TURBOPACK__imported__module__$5b$externals$5d2f$fs__$5b$external$5d$__$28$fs$2c$__cjs$29$__["default"].existsSync(process.env.FFPROBE_PATH)) {
         return process.env.FFPROBE_PATH;
     }
-    const resolved = resolveBundlerPath(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$ffprobe$2d$static$2f$index$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"]?.path);
+    const resolved = resolveBundlerPath(__TURBOPACK__imported__module__$5b$externals$5d2f$ffprobe$2d$static__$5b$external$5d$__$28$ffprobe$2d$static$2c$__cjs$2c$__$5b$project$5d2f$node_modules$2f$ffprobe$2d$static$29$__["default"]?.path);
     if (resolved) {
         return resolved;
     }

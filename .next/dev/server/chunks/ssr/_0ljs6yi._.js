@@ -1513,9 +1513,18 @@ function Timeline() {
         duration,
         updateSubtitle
     ]);
+    // ─── Horizontal wheel scroll ──────────────────────────────────────────────
+    const handleWheel = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCallback"])((e)=>{
+        if (!containerRef.current) return;
+        const scrollAmount = e.deltaX !== 0 ? e.deltaX : e.deltaY;
+        if (scrollAmount !== 0) {
+            containerRef.current.scrollLeft += scrollAmount;
+        }
+    }, []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "timeline-container select-none",
         ref: containerRef,
+        onWheel: handleWheel,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             style: {
                 width: totalWidth,
@@ -1539,25 +1548,25 @@ function Timeline() {
                                     children: isMajor ? label : ''
                                 }, void 0, false, {
                                     fileName: "[project]/components/editor/Timeline.tsx",
-                                    lineNumber: 194,
+                                    lineNumber: 207,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"])('w-px', isMajor ? 'h-3 bg-bg-border' : 'h-2 bg-bg-border/50')
                                 }, void 0, false, {
                                     fileName: "[project]/components/editor/Timeline.tsx",
-                                    lineNumber: 197,
+                                    lineNumber: 210,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, time, true, {
                             fileName: "[project]/components/editor/Timeline.tsx",
-                            lineNumber: 189,
+                            lineNumber: 202,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/components/editor/Timeline.tsx",
-                    lineNumber: 184,
+                    lineNumber: 197,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1597,7 +1606,7 @@ function Timeline() {
                                     onMouseDown: (e)=>startDrag(e, sub, 'resize-left')
                                 }, void 0, false, {
                                     fileName: "[project]/components/editor/Timeline.tsx",
-                                    lineNumber: 245,
+                                    lineNumber: 258,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1605,7 +1614,7 @@ function Timeline() {
                                     children: sub.text
                                 }, void 0, false, {
                                     fileName: "[project]/components/editor/Timeline.tsx",
-                                    lineNumber: 251,
+                                    lineNumber: 264,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1613,19 +1622,19 @@ function Timeline() {
                                     onMouseDown: (e)=>startDrag(e, sub, 'resize-right')
                                 }, void 0, false, {
                                     fileName: "[project]/components/editor/Timeline.tsx",
-                                    lineNumber: 256,
+                                    lineNumber: 269,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, sub.id, true, {
                             fileName: "[project]/components/editor/Timeline.tsx",
-                            lineNumber: 220,
+                            lineNumber: 233,
                             columnNumber: 15
                         }, this);
                     })
                 }, void 0, false, {
                     fileName: "[project]/components/editor/Timeline.tsx",
-                    lineNumber: 208,
+                    lineNumber: 221,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1638,18 +1647,18 @@ function Timeline() {
                     }
                 }, void 0, false, {
                     fileName: "[project]/components/editor/Timeline.tsx",
-                    lineNumber: 266,
+                    lineNumber: 279,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/editor/Timeline.tsx",
-            lineNumber: 179,
+            lineNumber: 192,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/editor/Timeline.tsx",
-        lineNumber: 177,
+        lineNumber: 186,
         columnNumber: 5
     }, this);
 }
@@ -3270,6 +3279,9 @@ const useEditorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_
         setZoom: (zoom)=>set({
                 zoom: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$subtitles$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["clamp"])(zoom, 20, 500)
             }),
+        zoomOut: (factor)=>set((state)=>({
+                    zoom: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$subtitles$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["clamp"])(state.zoom * factor, 20, 500)
+                })),
         // ─── Style ────────────────────────────────────────────────────────────────
         updateStyle: (changes)=>set((state)=>({
                     style: {

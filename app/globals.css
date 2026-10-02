@@ -136,6 +136,20 @@ h1, h2, h3, h4, h5, h6 {
   border-top: 1px solid #2a2a30;
 }
 
+.timeline-container::-webkit-scrollbar {
+  height: 8px;
+}
+.timeline-container::-webkit-scrollbar-track {
+  background: #18181c;
+}
+.timeline-container::-webkit-scrollbar-thumb {
+  background: #3b3b44;
+  border-radius: 4px;
+}
+.timeline-container::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
 .timeline-ruler {
   position: sticky;
   top: 0;

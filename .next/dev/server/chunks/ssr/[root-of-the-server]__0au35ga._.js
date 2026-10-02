@@ -102,7 +102,7 @@ function HomePage() {
                                         lineNumber: 32,
                                         columnNumber: 13
                                     }, this),
-                                    "Powered by Whisper AI"
+                                    "Powered Loki-chaos creator"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/page.tsx",

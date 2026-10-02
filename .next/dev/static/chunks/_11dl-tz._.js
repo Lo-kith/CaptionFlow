@@ -1122,7 +1122,7 @@ function SubtitleEditor() {
         columnNumber: 5
     }, this);
 }
-_s(SubtitleEditor, "xISfdGHR/sTHTJhWl430lhk21/o=", false, function() {
+_s(SubtitleEditor, "vd9MNpbPu0K/3qopw5CCfGYQZ0A=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$editorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEditorStore"]
     ];
@@ -1412,7 +1412,7 @@ function SubtitleRow({ subtitle, index, isActive, isSelected, canMergeNext }) {
         columnNumber: 5
     }, this);
 }
-_s(SubtitleRow, "PfWR9KShfunWE79gYwd499kDWeQ=", false, function() {
+_s(SubtitleRow, "focCSnMYZbwOishT3sFrcmaLi2o=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$editorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEditorStore"]
     ];
@@ -1597,9 +1597,20 @@ function Timeline() {
         duration,
         updateSubtitle
     ]);
+    // ─── Horizontal wheel scroll ──────────────────────────────────────────────
+    const handleWheel = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
+        "Timeline.useCallback[handleWheel]": (e)=>{
+            if (!containerRef.current) return;
+            const scrollAmount = e.deltaX !== 0 ? e.deltaX : e.deltaY;
+            if (scrollAmount !== 0) {
+                containerRef.current.scrollLeft += scrollAmount;
+            }
+        }
+    }["Timeline.useCallback[handleWheel]"], []);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "timeline-container select-none",
         ref: containerRef,
+        onWheel: handleWheel,
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             style: {
                 width: totalWidth,
@@ -1623,25 +1634,25 @@ function Timeline() {
                                     children: isMajor ? label : ''
                                 }, void 0, false, {
                                     fileName: "[project]/components/editor/Timeline.tsx",
-                                    lineNumber: 194,
+                                    lineNumber: 207,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$clsx$2f$dist$2f$clsx$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"])('w-px', isMajor ? 'h-3 bg-bg-border' : 'h-2 bg-bg-border/50')
                                 }, void 0, false, {
                                     fileName: "[project]/components/editor/Timeline.tsx",
-                                    lineNumber: 197,
+                                    lineNumber: 210,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, time, true, {
                             fileName: "[project]/components/editor/Timeline.tsx",
-                            lineNumber: 189,
+                            lineNumber: 202,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/components/editor/Timeline.tsx",
-                    lineNumber: 184,
+                    lineNumber: 197,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1681,7 +1692,7 @@ function Timeline() {
                                     onMouseDown: (e)=>startDrag(e, sub, 'resize-left')
                                 }, void 0, false, {
                                     fileName: "[project]/components/editor/Timeline.tsx",
-                                    lineNumber: 245,
+                                    lineNumber: 258,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1689,7 +1700,7 @@ function Timeline() {
                                     children: sub.text
                                 }, void 0, false, {
                                     fileName: "[project]/components/editor/Timeline.tsx",
-                                    lineNumber: 251,
+                                    lineNumber: 264,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1697,19 +1708,19 @@ function Timeline() {
                                     onMouseDown: (e)=>startDrag(e, sub, 'resize-right')
                                 }, void 0, false, {
                                     fileName: "[project]/components/editor/Timeline.tsx",
-                                    lineNumber: 256,
+                                    lineNumber: 269,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, sub.id, true, {
                             fileName: "[project]/components/editor/Timeline.tsx",
-                            lineNumber: 220,
+                            lineNumber: 233,
                             columnNumber: 15
                         }, this);
                     })
                 }, void 0, false, {
                     fileName: "[project]/components/editor/Timeline.tsx",
-                    lineNumber: 208,
+                    lineNumber: 221,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1722,22 +1733,22 @@ function Timeline() {
                     }
                 }, void 0, false, {
                     fileName: "[project]/components/editor/Timeline.tsx",
-                    lineNumber: 266,
+                    lineNumber: 279,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/editor/Timeline.tsx",
-            lineNumber: 179,
+            lineNumber: 192,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/editor/Timeline.tsx",
-        lineNumber: 177,
+        lineNumber: 186,
         columnNumber: 5
     }, this);
 }
-_s(Timeline, "6+qk8ptCRkp/mmKG6FBPz0C+LGQ=", false, function() {
+_s(Timeline, "rlqx2qYgj3Lm+IxmPl924NJbvQE=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$editorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEditorStore"]
     ];
@@ -1960,7 +1971,7 @@ function TimelineControls() {
         columnNumber: 5
     }, this);
 }
-_s(TimelineControls, "rfQA8HUZdGBDasQ2zdK+MH7QZN0=", false, function() {
+_s(TimelineControls, "mRUhRAqhFECusCYwdAUvLxkagzE=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$editorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEditorStore"]
     ];
@@ -2962,7 +2973,7 @@ function VideoPlayer() {
         columnNumber: 5
     }, this);
 }
-_s(VideoPlayer, "m7m86Bcgk7TOnaVUlJOD1H/fR1E=", false, function() {
+_s(VideoPlayer, "E10sDn490I5SzcrxJpAP3pvaj30=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$editorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEditorStore"]
     ];
@@ -3089,7 +3100,7 @@ function useKeyboardShortcuts() {
         handleKeyDown
     ]);
 }
-_s(useKeyboardShortcuts, "3/chDWQrSgxhCZY4vyfWHtodi3I=", false, function() {
+_s(useKeyboardShortcuts, "NAFk99feQsaPuFxKDquO+X73iXQ=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$editorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEditorStore"]
     ];
@@ -3473,6 +3484,9 @@ const useEditorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_
         setZoom: (zoom)=>set({
                 zoom: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$subtitles$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clamp"])(zoom, 20, 500)
             }),
+        zoomOut: (factor)=>set((state)=>({
+                    zoom: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$subtitles$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clamp"])(state.zoom * factor, 20, 500)
+                })),
         // ─── Style ────────────────────────────────────────────────────────────────
         updateStyle: (changes)=>set((state)=>({
                     style: {

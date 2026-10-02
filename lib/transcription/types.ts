@@ -8,7 +8,7 @@ export interface TranscriptionResult {
   duration?: number
 }
 
-// ─── Raw Whisper output types (from @xenova/transformers) ──────────────────
+// ─── Raw Whisper output types (from @huggingface/transformers) ──────────────
 
 export interface WhisperChunk {
   timestamp: [number, number | null]
