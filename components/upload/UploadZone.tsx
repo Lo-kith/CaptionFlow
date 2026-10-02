@@ -30,9 +30,12 @@ const STEP_MESSAGES: Record<UploadStep, string> = {
   error: 'Something went wrong',
 }
 
+/** Zoom the timeline out by 20% once a video is loaded. */
+const POST_UPLOAD_ZOOM_OUT = 0.8
+
 export default function UploadZone() {
   const router = useRouter()
-  const { setVideo, setSubtitles, setDuration } = useEditorStore()
+  const { setVideo, setSubtitles, setDuration, zoomOut } = useEditorStore()
 
   const [isDragging, setIsDragging] = useState(false)
   const [progress, setProgress] = useState<UploadProgress>({
@@ -110,6 +113,7 @@ export default function UploadZone() {
         })
         setSubtitles(segments)
         setDuration(uploadData.metadata.duration)
+        zoomOut(POST_UPLOAD_ZOOM_OUT)
 
         // Short delay to show the "ready" state before navigating
         await new Promise((r) => setTimeout(r, 600))
@@ -120,7 +124,7 @@ export default function UploadZone() {
         setStep('error', 0)
       }
     },
-    [router, setVideo, setSubtitles, setDuration]
+    [router, setVideo, setSubtitles, setDuration, zoomOut]
   )
 
   const onDrop = useCallback(

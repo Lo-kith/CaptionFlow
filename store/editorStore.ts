@@ -69,6 +69,7 @@ export interface EditorActions {
 
   // Timeline
   setZoom: (zoom: number) => void
+  zoomOut: (factor: number) => void
 
   // Style
   updateStyle: (changes: Partial<SubtitleStyle>) => void
@@ -206,6 +207,9 @@ export const useEditorStore = create<EditorState & EditorActions>((set, get) => 
   // ─── Timeline ─────────────────────────────────────────────────────────────
 
   setZoom: (zoom) => set({ zoom: clamp(zoom, 20, 500) }),
+
+  zoomOut: (factor) =>
+    set((state) => ({ zoom: clamp(state.zoom * factor, 20, 500) })),
 
   // ─── Style ────────────────────────────────────────────────────────────────
 
