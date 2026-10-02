@@ -5,6 +5,8 @@ export interface SubtitleSegment {
   text: string
 }
 
+
+
 export interface SubtitleStyle {
   fontFamily: string
   fontSize: number
