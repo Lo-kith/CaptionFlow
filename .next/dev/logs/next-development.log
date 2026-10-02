@@ -1,9 +1,2 @@
-{"timestamp":"00:00:11.522","source":"Server","level":"LOG","message":""}
-{"timestamp":"00:00:13.195","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"00:08:14.393","source":"Server","level":"LOG","message":"  Reload env: .env"}
-{"timestamp":"00:13:14.089","source":"Server","level":"LOG","message":"[whisper] Loading model \"Xenova/whisper-base\" (first-time download may take a few minutes)..."}
-{"timestamp":"00:13:20.272","source":"Server","level":"LOG","message":"[whisper] Transcribing 57.9s of audio with model \"Xenova/whisper-base\"..."}
-{"timestamp":"00:14:10.217","source":"Server","level":"WARN","message":"[whisper] Timestamp extraction failed (token_ids must be a non-empty array of integers.), retrying without chunking..."}
-{"timestamp":"00:14:10.222","source":"Server","level":"WARN","message":"Attempting to extract features for audio longer than 30 seconds. If using a pipeline to extract transcript from a long audio clip, remember to specify `chunk_length_s` and/or `stride_length_s`."}
-{"timestamp":"00:14:28.002","source":"Server","level":"LOG","message":"[whisper] Transcription complete. Segments: 0"}
-{"timestamp":"00:26:29.242","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:00:02.088","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:04.472","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}

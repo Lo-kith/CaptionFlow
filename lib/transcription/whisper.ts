@@ -23,6 +23,13 @@ import { SubtitleSegment } from '@/types/subtitle'
 env.useBrowserCache = false
 env.allowLocalModels = false  // always fetch from HuggingFace hub
 
+// v4 otherwise defaults cacheDir to node_modules/@huggingface/transformers/.cache,
+// which is neither writable-by-default nor persistent. Point it at a real path
+// (e.g. a mounted Docker volume) so the model is downloaded only once.
+if (process.env.WHISPER_CACHE_DIR) {
+  env.cacheDir = process.env.WHISPER_CACHE_DIR
+}
+
 // ─── Singleton pipeline (shared across requests) ──────────────────────────
 
 type ASRPipeline = Awaited<ReturnType<typeof pipeline>>

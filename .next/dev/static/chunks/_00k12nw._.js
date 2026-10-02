@@ -33,10 +33,11 @@ const STEP_MESSAGES = {
     ready: 'Processing complete!',
     error: 'Something went wrong'
 };
+/** Zoom the timeline out by 20% once a video is loaded. */ const POST_UPLOAD_ZOOM_OUT = 0.8;
 function UploadZone() {
     _s();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
-    const { setVideo, setSubtitles, setDuration } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$editorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEditorStore"])();
+    const { setVideo, setSubtitles, setDuration, zoomOut } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$editorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEditorStore"])();
     const [isDragging, setIsDragging] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [progress, setProgress] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
         step: 'idle',
@@ -101,6 +102,7 @@ function UploadZone() {
                 });
                 setSubtitles(segments);
                 setDuration(uploadData.metadata.duration);
+                zoomOut(POST_UPLOAD_ZOOM_OUT);
                 // Short delay to show the "ready" state before navigating
                 await new Promise({
                     "UploadZone.useCallback[handleFile]": (r)=>setTimeout(r, 600)
@@ -116,7 +118,8 @@ function UploadZone() {
         router,
         setVideo,
         setSubtitles,
-        setDuration
+        setDuration,
+        zoomOut
     ]);
     const onDrop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useCallback"])({
         "UploadZone.useCallback[onDrop]": (e)=>{
@@ -164,7 +167,7 @@ function UploadZone() {
                 "aria-hidden": true
             }, void 0, false, {
                 fileName: "[project]/components/upload/UploadZone.tsx",
-                lineNumber: 158,
+                lineNumber: 162,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -180,17 +183,17 @@ function UploadZone() {
                                         className: "w-7 h-7 text-accent"
                                     }, void 0, false, {
                                         fileName: "[project]/components/upload/UploadZone.tsx",
-                                        lineNumber: 172,
+                                        lineNumber: 176,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/upload/UploadZone.tsx",
-                                    lineNumber: 171,
+                                    lineNumber: 175,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                lineNumber: 170,
+                                lineNumber: 174,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -198,7 +201,7 @@ function UploadZone() {
                                 children: "Drop your video here"
                             }, void 0, false, {
                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                lineNumber: 175,
+                                lineNumber: 179,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -206,7 +209,7 @@ function UploadZone() {
                                 children: "or click to browse"
                             }, void 0, false, {
                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                lineNumber: 178,
+                                lineNumber: 182,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -222,12 +225,12 @@ function UploadZone() {
                                         children: fmt
                                     }, fmt, false, {
                                         fileName: "[project]/components/upload/UploadZone.tsx",
-                                        lineNumber: 181,
+                                        lineNumber: 185,
                                         columnNumber: 17
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                lineNumber: 179,
+                                lineNumber: 183,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -239,13 +242,13 @@ function UploadZone() {
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                lineNumber: 186,
+                                lineNumber: 190,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/upload/UploadZone.tsx",
-                        lineNumber: 169,
+                        lineNumber: 173,
                         columnNumber: 11
                     }, this),
                     isProcessing && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -258,7 +261,7 @@ function UploadZone() {
                                         className: "w-5 h-5 text-accent flex-shrink-0"
                                     }, void 0, false, {
                                         fileName: "[project]/components/upload/UploadZone.tsx",
-                                        lineNumber: 197,
+                                        lineNumber: 201,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -269,7 +272,7 @@ function UploadZone() {
                                                 children: selectedFile.name
                                             }, void 0, false, {
                                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                                lineNumber: 199,
+                                                lineNumber: 203,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -281,19 +284,19 @@ function UploadZone() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                                lineNumber: 202,
+                                                lineNumber: 206,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/components/upload/UploadZone.tsx",
-                                        lineNumber: 198,
+                                        lineNumber: 202,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                lineNumber: 196,
+                                lineNumber: 200,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -330,24 +333,24 @@ function UploadZone() {
                                                     className: "w-4 h-4 text-status-success"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/upload/UploadZone.tsx",
-                                                    lineNumber: 230,
+                                                    lineNumber: 234,
                                                     columnNumber: 25
                                                 }, this) : isCurrent ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$loader$2d$circle$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Loader2$3e$__["Loader2"], {
                                                     className: "w-4 h-4 text-accent animate-spin"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/upload/UploadZone.tsx",
-                                                    lineNumber: 232,
+                                                    lineNumber: 236,
                                                     columnNumber: 25
                                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "w-3 h-3 rounded-full border border-bg-border"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/upload/UploadZone.tsx",
-                                                    lineNumber: 234,
+                                                    lineNumber: 238,
                                                     columnNumber: 25
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                                lineNumber: 228,
+                                                lineNumber: 232,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -355,19 +358,19 @@ function UploadZone() {
                                                 children: label
                                             }, void 0, false, {
                                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                                lineNumber: 237,
+                                                lineNumber: 241,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, step, true, {
                                         fileName: "[project]/components/upload/UploadZone.tsx",
-                                        lineNumber: 227,
+                                        lineNumber: 231,
                                         columnNumber: 19
                                     }, this);
                                 })
                             }, void 0, false, {
                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                lineNumber: 212,
+                                lineNumber: 216,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -379,18 +382,18 @@ function UploadZone() {
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/components/upload/UploadZone.tsx",
-                                    lineNumber: 247,
+                                    lineNumber: 251,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                lineNumber: 246,
+                                lineNumber: 250,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/upload/UploadZone.tsx",
-                        lineNumber: 193,
+                        lineNumber: 197,
                         columnNumber: 11
                     }, this),
                     progress.step === 'ready' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -400,7 +403,7 @@ function UploadZone() {
                                 className: "w-10 h-10 text-status-success"
                             }, void 0, false, {
                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                lineNumber: 254,
+                                lineNumber: 258,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -408,7 +411,7 @@ function UploadZone() {
                                 children: "Processing complete!"
                             }, void 0, false, {
                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                lineNumber: 255,
+                                lineNumber: 259,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -416,13 +419,13 @@ function UploadZone() {
                                 children: "Opening editor..."
                             }, void 0, false, {
                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                lineNumber: 256,
+                                lineNumber: 260,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/upload/UploadZone.tsx",
-                        lineNumber: 253,
+                        lineNumber: 257,
                         columnNumber: 11
                     }, this),
                     progress.step === 'error' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -434,12 +437,12 @@ function UploadZone() {
                                     className: "w-10 h-10 text-status-error"
                                 }, void 0, false, {
                                     fileName: "[project]/components/upload/UploadZone.tsx",
-                                    lineNumber: 263,
+                                    lineNumber: 267,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                lineNumber: 262,
+                                lineNumber: 266,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -447,7 +450,7 @@ function UploadZone() {
                                 children: "Processing failed"
                             }, void 0, false, {
                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                lineNumber: 265,
+                                lineNumber: 269,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -455,7 +458,7 @@ function UploadZone() {
                                 children: error
                             }, void 0, false, {
                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                lineNumber: 266,
+                                lineNumber: 270,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -474,29 +477,29 @@ function UploadZone() {
                                 children: "Try again"
                             }, void 0, false, {
                                 fileName: "[project]/components/upload/UploadZone.tsx",
-                                lineNumber: 267,
+                                lineNumber: 271,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/upload/UploadZone.tsx",
-                        lineNumber: 261,
+                        lineNumber: 265,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/upload/UploadZone.tsx",
-                lineNumber: 167,
+                lineNumber: 171,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/upload/UploadZone.tsx",
-        lineNumber: 147,
+        lineNumber: 151,
         columnNumber: 5
     }, this);
 }
-_s(UploadZone, "/cDu3BynKiYk4sOB2q6fGevKh/w=", false, function() {
+_s(UploadZone, "1ss+rouze7URvhO5eimYZuT4POk=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"],
         __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$editorStore$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEditorStore"]
@@ -1522,6 +1525,9 @@ const useEditorStore = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_
         setZoom: (zoom)=>set({
                 zoom: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$subtitles$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clamp"])(zoom, 20, 500)
             }),
+        zoomOut: (factor)=>set((state)=>({
+                    zoom: (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$subtitles$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["clamp"])(state.zoom * factor, 20, 500)
+                })),
         // ─── Style ────────────────────────────────────────────────────────────────
         updateStyle: (changes)=>set((state)=>({
                     style: {

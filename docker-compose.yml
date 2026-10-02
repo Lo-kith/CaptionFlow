@@ -1,0 +1,44 @@
+# CaptionFlow — local / single-host deployment
+#
+#   docker compose up -d --build
+#   docker compose logs -f
+#   docker compose down
+#
+# Two named volumes keep state across restarts:
+#   captionflow-data  -> uploads + extracted audio (TEMP_DIR)
+#   captionflow-models-> downloaded Whisper models (WHISPER_CACHE_DIR)
+#
+# Without the model volume every restart re-downloads ~150 MB from HuggingFace.
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: captionflow:latest
+    container_name: captionflow
+    restart: unless-stopped
+
+    ports:
+      - '3000:3000'
+
+    volumes:
+      - captionflow-data:/data/temp
+      - captionflow-models:/data/models
+
+    environment:
+      # Whisper size: tiny | base | small | medium | large
+      # Small/medium are much slower on CPU — 'base' is the sane default.
+      WHISPER_MODEL: ${WHISPER_MODEL:-base}
+      MAX_FILE_SIZE_MB: ${MAX_FILE_SIZE_MB:-500}
+
+    # Whisper int8 inference is CPU/memory hungry. Without a limit the
+    # container can be OOM-killed mid-transcription on small hosts.
+    deploy:
+      resources:
+        limits:
+          memory: 4g
+
+volumes:
+  captionflow-data:
+  captionflow-models:

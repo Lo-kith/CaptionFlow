@@ -30,7 +30,7 @@ export default function HomePage() {
         <div className="text-center mb-12 max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent-subtle border border-accent/20 text-accent text-xs font-medium mb-6">
             <Sparkles className="w-3 h-3" />
-            Powered by Whisper AI
+            Powered Loki-chaos creator
           </div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-text-primary mb-4 leading-tight">
             Turn your videos into<br />
