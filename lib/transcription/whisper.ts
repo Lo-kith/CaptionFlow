@@ -1,5 +1,5 @@
 /**
- * Local Whisper transcription using @xenova/transformers (Transformers.js).
+ * Local Whisper transcription using @huggingface/transformers (Transformers.js v4).
  *
  * Runs entirely on-device — no API key, no internet required after
  * the first model download. Models are cached in the HuggingFace
@@ -11,7 +11,7 @@
  */
 
 import fs from 'fs'
-import { pipeline, env } from '@xenova/transformers'
+import { pipeline, env } from '@huggingface/transformers'
 import { WaveFile } from 'wavefile'
 import { TranscriptionService } from './service'
 import { TranscriptionResult, WhisperOutput, DEFAULT_WHISPER_MODEL } from './types'
@@ -45,8 +45,9 @@ async function getOrCreatePipeline(modelId: string): Promise<ASRPipeline> {
     console.log(`[whisper] Loading model "${modelId}" (first-time download may take a few minutes)...`)
     _loadedModelId = modelId
     _pipelinePromise = pipeline('automatic-speech-recognition', modelId, {
-      // Use quantized (int8) ONNX model for faster inference + smaller download
-      quantized: true,
+      // Use int8 (q8) ONNX model for faster inference + smaller download.
+      // NOTE: v3+ replaced the old `quantized: true` option with `dtype`.
+      dtype: 'q8',
     })
   }
 
@@ -69,9 +70,10 @@ function decodeWavFile(filePath: string): Float32Array {
   wav.toBitDepth('32f')
   wav.toSampleRate(16000)
 
-  // getSamples() returns an array of channel arrays; take the first channel
-  const raw = wav.getSamples()
-  const samples: Float32Array = Array.isArray(raw) ? raw[0] : raw
+  // getSamples() returns a Float64Array (not an Array, not a Float32Array),
+  // so convert explicitly — Whisper's feature extractor expects float32.
+  const raw = wav.getSamples() as unknown as ArrayLike<number>
+  const samples = Float32Array.from(raw)
 
   return samples
 }
@@ -129,7 +131,7 @@ export class LocalWhisperService implements TranscriptionService {
 
     return {
       segments,
-      language: undefined, // @xenova/transformers doesn't expose detected language easily
+      language: undefined, // @huggingface/transformers doesn't expose detected language easily
       duration: audioSamples.length / 16000,
     }
   }

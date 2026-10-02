@@ -105,7 +105,7 @@ self.__SERVER_FILES_MANIFEST={
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "E:\\persnol\\CaptionFlow",
+    "outputFileTracingRoot": "D:\\builds\\CaptionFlow",
     "enablePrerenderSourceMaps": true,
     "cacheComponents": false,
     "cacheLife": {
@@ -175,7 +175,7 @@ self.__SERVER_FILES_MANIFEST={
       "proxyPrefetch": "flexible",
       "optimisticClientCache": true,
       "manualClientBasePath": false,
-      "cpus": 15,
+      "cpus": 11,
       "memoryBasedWorkersCount": false,
       "imgOptConcurrency": null,
       "imgOptOperationCache": null,
@@ -324,13 +324,13 @@ self.__SERVER_FILES_MANIFEST={
       "fluent-ffmpeg",
       "formidable"
     ],
-    "repoRoot": "E:\\persnol\\CaptionFlow",
+    "repoRoot": "D:\\builds\\CaptionFlow",
     "turbopack": {
-      "root": "E:\\persnol\\CaptionFlow"
+      "root": "D:\\builds\\CaptionFlow"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "E:\\persnol\\CaptionFlow",
+  "appDir": "D:\\builds\\CaptionFlow",
   "relativeAppDir": "",
   "files": [
     ".next\\package.json",
