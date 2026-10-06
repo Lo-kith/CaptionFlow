@@ -30,7 +30,7 @@
 | Icons | Lucide React |
 | Backend | Next.js API Routes |
 | Video processing | FFmpeg / FFprobe |
-| Transcription | Groq Whisper (`whisper-large-v3`) |
+| Transcription |  Whisper (`whisper-large-v3`) |
 | File upload | Native FormData / Next.js |
 
 ---
@@ -39,7 +39,7 @@
 
 - **Node.js** 18+
 - **FFmpeg** and **FFprobe** installed and in PATH
-- **Groq API key** (free tier available at https://console.groq.com)
+
 
 ---
 
@@ -82,14 +82,12 @@ cp .env.example .env.local
 Fill in:
 
 ```env
-# Required
-GROQ_API_KEY=your_groq_api_key_here
-
 # Optional
 MAX_FILE_SIZE_MB=500
+WHISPER_MODEL=base
 ```
 
-Get your free Groq API key at https://console.groq.com
+Everything has a default — the app runs with no `.env` at all.
 
 ---
 
@@ -100,7 +98,6 @@ git clone https://github.com/your-org/captionflow
 cd captionflow
 npm install
 cp .env.example .env.local
-# Edit .env.local with your GROQ_API_KEY
 ```
 
 ---
@@ -129,8 +126,8 @@ npm start
 1. User uploads a video file
 2. FFprobe validates the video and extracts metadata
 3. FFmpeg extracts audio as 16kHz mono WAV (optimal for Whisper)
-4. Audio is sent to Groq's Whisper API (`whisper-large-v3`)
-5. Groq returns transcript with segment-level timestamps
+4. Audio is transcribed locally by Whisper (ONNX Runtime, `WHISPER_MODEL` env var)
+5. Whisper returns transcript with segment-level timestamps
 6. Segments are normalized into `SubtitleSegment[]` with `start/end` in seconds
 7. The audio file is deleted after transcription
 8. The subtitle editor opens with the generated segments
@@ -145,7 +142,7 @@ interface TranscriptionService {
 }
 ```
 
-To add a new provider (e.g., OpenAI Whisper, AssemblyAI), implement this interface and update the factory in `lib/transcription/groq.ts`.
+To add a new provider (e.g., OpenAI Whisper, AssemblyAI), implement this interface and update the factory in `lib/transcription/whisper.ts`.
 
 ---
 
@@ -215,7 +212,8 @@ captionflow/
 │   │   └── burnSubtitles.ts
 │   ├── transcription/
 │   │   ├── service.ts              # Interface
-│   │   └── groq.ts                 # Groq Whisper implementation
+│   │   ├── types.ts                # Shared result types
+│   │   └── whisper.ts              # Local Whisper (ONNX) implementation
 │   ├── subtitles/
 │   │   ├── srt.ts
 │   │   ├── vtt.ts
