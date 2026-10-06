@@ -81,7 +81,7 @@ export default function HomePage() {
       {/* Footer */}
       <footer className="border-t border-bg-border px-6 py-4 text-center">
         <p className="text-xs text-text-muted">
-          CaptionFlow — built with Next.js, FFmpeg, and Groq Whisper
+          CaptionFlow — built with Next.js, FFmpeg, and Whisper
         </p>
       </footer>
     </main>
